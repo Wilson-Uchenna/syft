@@ -20,6 +20,6 @@ export class MenubarComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
 }

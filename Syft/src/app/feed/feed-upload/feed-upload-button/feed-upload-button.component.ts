@@ -18,7 +18,7 @@ import { mailUnreadOutline } from 'ionicons/icons';
   standalone: true,
   imports: [IonButton, IonHeader, IonTitle, IonToolbar, IonContent, IonIcon, FeedListComponent]
 })
-export class FeedUploadButtonComponent  implements OnInit {
+export class FeedUploadButtonComponent  implements OnInit, OnDestroy {
   private Auth = inject(AuthService);
   private modalController = inject(ModalController);
   private feed = inject(FeedProviderService);

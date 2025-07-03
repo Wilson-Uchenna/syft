@@ -1,4 +1,4 @@
-@if (!(auth.currentUser$ | async)) {
+@if ((auth.currentUser$ | async) === null) {
   <ion-item-group>
     <ion-button 
       color="secondary" 

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FeedItem } from '../models/feed-item.model';
 import { FeedProviderService } from '../services/feed.provider.service';
 import { Subscription } from 'rxjs';
@@ -17,7 +17,7 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonGrid, 
             IonGrid, IonCol, IonRow
            ]
 })
-export class FeedListComponent  implements OnInit {
+export class FeedListComponent  implements OnInit, OnDestroy {
   private feed = inject(FeedProviderService);
 
   loading = false;

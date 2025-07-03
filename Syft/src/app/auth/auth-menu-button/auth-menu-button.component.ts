@@ -69,6 +69,6 @@ export class AuthMenuButtonComponent implements OnInit {
   this.feedService.clearFeed(); // 👈 Clear feed data on logout
 }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
 }

@@ -9,6 +9,6 @@ export class AuthMenuUserComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
 }
