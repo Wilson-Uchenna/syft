@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { AuthMenuUserComponent } from './auth-menu-user/auth-menu-user.component';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { FeedProviderService } from 'src/app/feed/services/feed.provider.service
               IonItemGroup, IonButton
   ]
 })
-export class AuthMenuButtonComponent implements OnInit {
+export class AuthMenuButtonComponent {
   auth = inject(AuthService);
   modalController = inject(ModalController);
   feedService = inject(FeedProviderService);
@@ -69,6 +69,6 @@ export class AuthMenuButtonComponent implements OnInit {
   this.feedService.clearFeed(); // 👈 Clear feed data on logout
 }
 
-  ngOnInit(): void {}
+ 
 
 }

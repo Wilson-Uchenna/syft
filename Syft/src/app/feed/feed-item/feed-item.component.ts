@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FeedItem } from '../models/feed-item.model';
 import { IonCard, IonCardContent, IonImg } from '@ionic/angular/standalone';
 
@@ -9,11 +9,10 @@ import { IonCard, IonCardContent, IonImg } from '@ionic/angular/standalone';
   standalone: true,
   imports: [IonCard, IonImg, IonCardContent]
 })
-export class FeedItemComponent  implements OnInit {
+export class FeedItemComponent  {
   
   @Input() feedItem!: FeedItem;
   constructor() { }
 
-  ngOnInit(): void {}
 
 }

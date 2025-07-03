@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonButtons, IonContent, IonHeader, 
           IonMenu, IonMenuButton, IonTitle, 
           IonToolbar } from '@ionic/angular/standalone';
@@ -14,12 +14,12 @@ import { AuthMenuButtonComponent } from '../auth/auth-menu-button/auth-menu-butt
             IonContent, IonButtons, IonMenuButton,
             AuthMenuButtonComponent]
 })
-export class MenubarComponent  implements OnInit {
+export class MenubarComponent  {
 
   appName = environment.appName;
 
   constructor() { }
 
-  ngOnInit(): void {}
+  
 
 }
