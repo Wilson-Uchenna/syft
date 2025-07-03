@@ -13,6 +13,11 @@ jobs:
       - checkout
       - node/install:
           node-version: '22.12'
+          
+      - run:
+          name: Install Ionic CLI
+          command: |
+            npm install -g @ionic/cli
 
       - run:
           name: Install Front-End Dependencies
