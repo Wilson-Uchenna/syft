@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "frontend:install": "cd full-stack-syft/syft && npm install -f",
+        "frontend:start": "cd full-stack-syft/syft && npm run start",
+        "frontend:build": "cd full-stack-syft/syft && npm run build",
+        "frontend:test": "cd full-stack-syft/syft && npm run test",
+        "frontend:e2e": "cd full-stack-syft/syft && npm run e2e",
+        "frontend:lint": "cd full-stack-syft/syft && npm run lint",
+        "frontend:deploy": "cd full-stack-syft/syft && npm run deploy",
+        "api:install": "cd full-stack-syft/syft-api && npm install .",
+        "api:build": "cd full-stack-syft/syft-api && npm run build",
+        "api:start": "cd full-stack-syft/syft-api && npm run dev",
+        "api:deploy": "cd full-stack-syft/syft-api && npm run deploy",
+        "deploy": "npm run api:deploy && npm run frontend:deploy"
+    }
+}
