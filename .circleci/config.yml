@@ -8,11 +8,11 @@ orbs:
 jobs:
   build:
     docker:
-      - image: "cimg/node:22.1"
+      - image: "cimg/node:22.12"
     steps:
       - checkout
       - node/install:
-          node-version: '22.1'
+          node-version: '22.12'
 
       - run:
           name: Install Front-End Dependencies
@@ -41,11 +41,11 @@ jobs:
 
   deploy:
     docker:
-      - image: "cimg/base:stable"
+      - image: "cimg/node:22.12"
     steps:
       - checkout
       - node/install:
-          node-version: '22.1'
+           node-version: '22.12'
       - eb/setup
       - aws-cli/setup
 
