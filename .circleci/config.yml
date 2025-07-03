@@ -1,0 +1,72 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  aws-cli: circleci/aws-cli@4.0.0
+
+jobs:
+  build:
+    docker:
+      - image: "cimg/node:22.1"
+    steps:
+      - checkout
+      - node/install:
+          node-version: '22.1'
+
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
+
+      - run:
+          name: Install API Dependencies
+          command: |
+            npm run api:install
+
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
+
+      - run:
+          name: Build the Frontend App
+          command: |
+            npm run frontend:build
+
+      - run:
+          name: Build the Backend API
+          command: |
+            npm run api:build
+
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - node/install:
+          node-version: '22.1'
+      - eb/setup
+      - aws-cli/setup
+
+      - run:
+          name: Deploy Backend to Elastic Beanstalk
+          command: |
+            npm run api:deploy
+
+      - run:
+          name: Deploy Frontend to S3
+          command: |
+            npm run frontend:deploy
+
+workflows:
+  syft-deploy:
+    jobs:
+      - build
+      - hold:
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold

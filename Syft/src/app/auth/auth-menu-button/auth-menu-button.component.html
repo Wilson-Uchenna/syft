@@ -1,0 +1,26 @@
+@if (!(auth.currentUser$ | async)) {
+  <ion-item-group>
+    <ion-button 
+      color="secondary" 
+      (click)="presentRegister()">
+      <span class="gradient-text">Register</span>
+    </ion-button>
+    <ion-button 
+      (click)="presentLogin()"
+      color="primary"
+      class="open-login">
+      <span class="gradient-text">Log In</span>
+    </ion-button>
+  </ion-item-group>
+} @else {
+  <ion-item-group>
+    <ion-button color="secondary">
+      {{ (auth.currentUser$ | async)?.email }}
+    </ion-button>
+    <ion-button 
+      (click)="logout()"
+      color="primary">
+      Log Out
+    </ion-button>
+  </ion-item-group>
+}

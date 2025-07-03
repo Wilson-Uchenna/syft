@@ -1,0 +1,42 @@
+<ion-content class="login-content">
+  <div class="login-wrapper">
+
+    <form [formGroup]="uploadForm" (submit)="onSubmit($event)">
+      <ion-item>
+        <!--  -->
+        <label class="custom-file">
+  <input type="file" accept="image/*" (change)="selectImage($event)" />
+  <span>Choose Photo</span>
+</label>
+  <br />
+      </ion-item>
+        @if (previewDataUrl) {
+        <ion-item>
+          <div class="image-preview-wrapper">
+          <img [src]="previewDataUrl" class="image-preview" />
+        </div>
+        </ion-item>
+        
+
+
+        }
+        @if (!previewDataUrl) {
+          
+        <a ion-button>
+          Select a Photo
+        </a>
+        }
+      
+
+      <ion-item>
+        <ion-textarea type="text" placeholder="Caption" label="Write a caption..." labelPlacement="floating"
+          [counter]="true" color="light" maxlength="20" formControlName="caption" required>
+        </ion-textarea>
+      </ion-item>
+
+      <ion-button color="primary" type="submit" class="login-button" [disabled]="!uploadForm.valid || !file">
+        Post
+      </ion-button>
+    </form>
+
+  </div>

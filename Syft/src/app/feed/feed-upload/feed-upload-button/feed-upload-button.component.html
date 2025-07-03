@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="feeds">My Feeds</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+@if(isEmpty) {
+  <ion-content class="ion-padding">
+  <div class="empty-state">
+    <ion-icon name="mail-unread-outline" class="mailbox-icon"></ion-icon>
+    <h2 class="message">You have no files yet.</h2>
+    <p class="hint">
+      Drag &amp; drop files here or
+      <ion-button fill="outline" size="small" color="primary" type="submit" [disabled]="!isLoggedIn"
+        (click)="presentUploadForm($event)"
+        class="browse-button">
+        Browse files
+      </ion-button>
+    </p>
+  </div>
+</ion-content>
+}
+@else {
+  <ion-content>
+  <app-feed-list></app-feed-list>
+  
+</ion-content>
+
+}
+

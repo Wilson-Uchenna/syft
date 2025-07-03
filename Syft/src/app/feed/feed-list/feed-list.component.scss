@@ -1,0 +1,29 @@
+.feed-grid {
+  
+
+  .feed-card {
+    margin-bottom: 1rem;
+    max-width: auto;
+    width: auto;
+  }
+
+  .empty-state {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .animated-fade {
+    animation: fadeInUp 1.0s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<ion-content class="login-content" [fullscreen]="true">
+  <div class="login-wrapper">
+
+    <!-- Syft Logo -->
+    <div class="logo-container">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+      </ion-item>
+      <p class="welcome-title">Welcome to Syft</p>
+    </div>
+
+    @if (loginForm) {
+    <form [formGroup]="loginForm" (submit)="onSubmit($event)" class="login-form">
+
+      <ion-item>
+        <ion-input type="email" label="Email" labelPlacement="floating" placeholder="Enter email"
+          formControlName="email">
+          <ion-icon slot="start" name="mail" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" label="Password" labelPlacement="floating" placeholder="Enter password"
+          formControlName="password">
+          <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
+        </ion-input>
+      </ion-item>
+
+      <ion-checkbox labelPlacement="end" color="light"><span
+          style="color: white; font-size: xx-small; letter-spacing: 0.5px;">Remember Me</span></ion-checkbox>
+
+      <ion-button expand="block" 
+        color="light" 
+        shape="round" 
+        type="submit" 
+        [disabled]="!loginForm.valid"
+        class="login-button">
+        Log In
+      </ion-button>
+
+      @if (error) {
+      <div class="error-message">
+        {{ error }}
+      </div>
+      }
+
+      <ion-item lines="none" class="forgot-password-line" detail="false">
+        <ion-label class="forgot-password-text">Forgot Password?</ion-label>
+      </ion-item>
+
+    </form>
+    }
+
+  </div>
+</ion-content>

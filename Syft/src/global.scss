@@ -1,0 +1,221 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+// @import '@ionic/angular/css/palettes/dark.system.css';
+
+.transparent-modal {
+  --background: #0000005c;
+
+  &::part(content) {
+    backdrop-filter: blur(10px);
+
+    margin: auto;
+
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+
+  ion-content {
+    --background: transparent;
+  }
+
+  ion-avatar {
+    background: transparent !important;
+    box-shadow: none;
+    margin-left: 5px;
+  }
+
+  ion-input {
+    --background: transparent;
+    color: white;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --placeholder-opacity: 0.7;
+    font-size: 12px;
+
+  }
+
+  ion-content {
+    --background: transparent;
+
+    --padding-bottom: 10px;
+  }
+
+  ion-item {
+    --background: transparent;
+    --color: white;
+    --color-focused: white;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+/* global.scss */
+html,
+body,
+ion-app {
+  height: 100%;
+  background: transparent;
+}
+
+ion-split-pane {
+  background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e) !important;
+}
+
+
+
+
+ion-modal.glass-modal {
+  &::part(backdrop) {
+    --background: rgba(0, 0, 0, 0.05) !important; // Light frosted tint
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(25px);
+
+  }
+
+
+  &::part(content) {
+    width: 90%;
+    max-width: 250px;
+    margin: auto;
+    height: 70%;
+    padding: 10px 24px;
+    border-radius: 20px;
+
+    background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e) !important; // or remove entirely for testing
+
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    color: white;
+  }
+
+  ion-content {
+    --background: transparent;
+
+    --padding-bottom: 10px;
+  }
+
+  ion-item {
+    --background: transparent;
+    --color: white;
+    --color-focused: white;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  ion-input {
+    --background: transparent;
+    color: white;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --placeholder-opacity: 0.7;
+    font-size: 12px;
+
+  }
+
+  ion-avatar {
+    background: transparent !important;
+    box-shadow: none;
+    margin-left: 5px;
+  }
+
+}
+
+/* Remove autocomplete yellow/bg highlight on autofill */
+
+ion-checkbox {
+  margin: 10px 0 0 15px;
+  --size: 15px;
+  --border-color: none;
+}
+
+
+.login-content {
+  --background: transparent;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+ion-avatar {
+  width: 70px;
+  height: 70px;
+}
+
+.login-button {
+  margin-top: 10px;
+  margin-left: 30px;
+  max-width: 150px;
+  align-self: center;
+
+}
+
+body {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom right, #1f1c2c, #928dab);
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-text-fill-color: white !important;
+}
+
+
+.gradient-text {
+  background: linear-gradient(135deg,
+      rgba(5, 29, 244, 0.966),
+      rgba(234, 4, 246, 0.6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* for Firefox */
+
+}
+
+.welcome-title {
+  font-family: 'Seaweed Script', cursive;
+  color: #fff;
+  margin: 0;
+}

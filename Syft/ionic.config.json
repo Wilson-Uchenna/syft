@@ -1,0 +1,7 @@
+{
+  "name": "Syft",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
