@@ -8,6 +8,7 @@
   "start": "ionic serve",
   "build": "ionic build --prod",
   "watch": "ng build --watch --configuration development",
+  "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
   "test": "ng test",
   "lint": "ng lint",
   "e2e": "cypress open",
