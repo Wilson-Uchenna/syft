@@ -34,6 +34,8 @@ jobs:
           command: |
             npm run frontend:lint
 
+      
+      
       - run:
           name: Build the Frontend App
           command: |
@@ -58,6 +60,11 @@ jobs:
           name: Deploy Backend to Elastic Beanstalk
           command: |
             npm run api:deploy
+
+      - run: 
+          name: Install Ionic/cli
+          command: |
+             npm install -g @ionic/cli
 
       - run:
           name: Deploy Frontend to S3
