@@ -33,8 +33,7 @@ Thumbs.db
 .circleci/output/
 
 # AWS/EB
-.elasticbeanstalk/
-.aws/
+
 
 # Frontend Angular build
 udagram-frontend/www/
