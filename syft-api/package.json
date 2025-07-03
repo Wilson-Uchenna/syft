@@ -1,0 +1,60 @@
+{
+  "name": "syft-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "www/server.js",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "start": "npm run prod",
+    "start:dev": "node ./www/server.js",
+    "dev": "npx ts-node-dev --respawn --transpile-only src/server.ts",
+    "tsc": "npx tsc",
+    "prod": "node ./www/server.js",
+    "clean": "rm -rf www || true",
+    "deploy": "npm run build && eb list && eb use syft-env && eb deploy",
+    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "email-validator": "^2.0.4",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.1",
+    "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^0.0.42",
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "eslint": "^9.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.0",
+    "prettier": "^3.5.3",
+    "sequelize-cli": "^6.6.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
