@@ -7,7 +7,7 @@
         "frontend:e2e": "cd Syft && npm run e2e",
         "frontend:lint": "cd Syft && npm run lint",
         "frontend:deploy": "cd Syft && npm run deploy",
-        "api:install": "cd syft-api && npm install .",
+        "api:install": "cd syft-api && npm install",
         "api:build": "cd syft-api && npm run build",
         "api:start": "cd syft-api && npm run dev",
         "api:deploy": "cd syft-api && npm run deploy",
