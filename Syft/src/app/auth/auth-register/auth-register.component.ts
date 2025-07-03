@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IonAvatar, IonButton, IonContent, IonIcon, IonInput, IonItem, IonLabel, ModalController } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
@@ -14,14 +14,14 @@ import { person, lockClosed, mail } from 'ionicons/icons';
   imports: [IonItem, IonInput, IonButton, ReactiveFormsModule, IonContent, IonAvatar, IonIcon]
 })
 export class AuthRegisterComponent  implements OnInit {
+  private modalController = inject(ModalController);
+  private authService = inject(AuthService);
+  private formBuilder = inject(FormBuilder);
+
   registerForm!: FormGroup
   error: string | null = null;
 
-  constructor(
-    private modalController: ModalController,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) { 
+  constructor() { 
     addIcons({
       person,
       lockClosed,

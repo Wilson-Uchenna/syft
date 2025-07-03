@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { IonAvatar, IonButton, IonCheckbox, IonContent, IonIcon, IonInput, IonItem, IonLabel, ModalController } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
@@ -16,14 +16,14 @@ import { lockClosed, mail, person } from 'ionicons/icons';
   ]
 })
 export class AuthLoginComponent  implements OnInit {
+  private formBuilder = inject(FormBuilder);
+  private auth = inject(AuthService);
+  private modalctrl = inject(ModalController);
+
   loginForm!: FormGroup
   error: string[] = [];
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private auth: AuthService,
-    private modalctrl: ModalController
-  ) { 
+  constructor() { 
     addIcons({
       lockClosed, mail, person
     });

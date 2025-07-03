@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
@@ -10,13 +10,13 @@ const API_HOST = environment.apiHost;
   providedIn: 'root'
 })
 export class ApiService {
+  private http = inject(HttpClient);
+
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   token!: string;
-
-  constructor(private http: HttpClient) {}
 
   static handleError(error: any): void {
     alert(error.message);

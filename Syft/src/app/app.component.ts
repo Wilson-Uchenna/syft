@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { RouterLink } from '@angular/router';
 import { IonApp, IonContent, IonHeader, IonIcon, IonItem, 
@@ -23,6 +23,8 @@ import { environment } from '../environments/environment';
   ]
 })
 export class AppComponent {
+  private platform = inject(Platform);
+
   
 
   public appPages = [
@@ -31,7 +33,7 @@ export class AppComponent {
 
   public appName = environment.appName;
 
-  constructor(private platform: Platform) {
+  constructor() {
     addIcons({ home });
 
     this.initializeApp();

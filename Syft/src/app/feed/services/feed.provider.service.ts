@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { FeedItem } from '../models/feed-item.model';
 import { ApiService } from 'src/app/api/api.service';
 import { BehaviorSubject } from 'rxjs';
@@ -7,10 +7,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class FeedProviderService {
+  private api = inject(ApiService);
+
   currentFeed$: BehaviorSubject<FeedItem[]> = new BehaviorSubject<FeedItem[]>([]);
   isNewUser$ = new BehaviorSubject<boolean>(false);
-
-  constructor(private api: ApiService) { }
 
   async getFeed(): Promise<BehaviorSubject<FeedItem[]>> {
     const req = await this.api.get('/feed/0');

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, inject } from '@angular/core';
 import { IonButton, IonContent, IonHeader, 
           IonIcon, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { FeedUploadComponent } from '../feed-upload.component';
@@ -19,13 +19,15 @@ import { mailUnreadOutline } from 'ionicons/icons';
   imports: [IonButton, IonHeader, IonTitle, IonToolbar, IonContent, IonIcon, FeedListComponent]
 })
 export class FeedUploadButtonComponent  implements OnInit {
+  private Auth = inject(AuthService);
+  private modalController = inject(ModalController);
+  private feed = inject(FeedProviderService);
+
   feeds = signal<FeedItem[]>([]);
   isLoggedIn = false;
   loginSubscription!: Subscription;
 
-  constructor( private Auth: AuthService, 
-              private modalController: ModalController,
-              private feed: FeedProviderService) { 
+  constructor() { 
     addIcons({
       mailUnreadOutline
     });

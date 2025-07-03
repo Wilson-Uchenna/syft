@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { AuthMenuUserComponent } from './auth-menu-user/auth-menu-user.component';
 import { CommonModule } from '@angular/common';
@@ -19,12 +19,10 @@ import { FeedProviderService } from 'src/app/feed/services/feed.provider.service
   ]
 })
 export class AuthMenuButtonComponent implements OnInit {
+  auth = inject(AuthService);
+  modalController = inject(ModalController);
+  feedService = inject(FeedProviderService);
 
-  constructor(
-    public auth: AuthService,
-    public modalController: ModalController,
-    public feedService: FeedProviderService
-    ) {}
 
   async presentmodal() {
     const modal = await this.modalController.create({

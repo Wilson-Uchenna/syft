@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FeedItem } from '../models/feed-item.model';
 import { FeedProviderService } from '../services/feed.provider.service';
 import { Subscription } from 'rxjs';
@@ -18,11 +18,12 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonGrid, 
            ]
 })
 export class FeedListComponent  implements OnInit {
+  private feed = inject(FeedProviderService);
+
   loading = false;
   dummyItems: FeedItem[] = new Array(6).fill({ id: -1 } as FeedItem)
   feedItems: FeedItem[] = []
   subscriptions: Subscription[] = [];
-  constructor (private feed: FeedProviderService) { }
 
   async ngOnInit() {
   this.loading = true;

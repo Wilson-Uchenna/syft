@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FeedProviderService } from '../services/feed.provider.service';
 import { IonButton, IonContent, IonItem, IonLabel, IonTextarea, LoadingController, ModalController } from '@ionic/angular/standalone';
@@ -11,16 +11,14 @@ import { IonButton, IonContent, IonItem, IonLabel, IonTextarea, LoadingControlle
   imports: [ReactiveFormsModule, IonContent, IonItem, IonButton, IonTextarea]
 })
 export class FeedUploadComponent  implements OnInit {
+  private feed = inject(FeedProviderService);
+  private formBuilder = inject(FormBuilder);
+  private loadingController = inject(LoadingController);
+  private modalController = inject(ModalController);
+
   previewDataUrl!: string | null;
   file!: File;
   uploadForm!: FormGroup;
-
-  constructor(
-    private feed: FeedProviderService,
-    private formBuilder: FormBuilder,
-    private loadingController: LoadingController,
-    private modalController: ModalController
-  ) { }
 
   ngOnInit() {
     this.uploadForm = this.formBuilder.group({
